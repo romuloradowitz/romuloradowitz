@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Romulo – Executivo | Investidor | Empresário | Autor | Ciclista</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #1e3a8a;      
+      --primary-light: #3b82f6;
+      --text: #1f2937;
+      --light: #f8fafc;
+      --gray: #64748b;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #111827 100%);
+      color: white;
+      padding: 8rem 2rem 6rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.8rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header .subtitle {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.8rem;
+      margin: 0 1rem;
+      opacity: 0.85;
+      transition: all 0.25s;
+    }
+
+    .social-links a:hover {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: -4rem auto 4rem;
+      padding: 0 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 2.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 2.1rem;
+      margin-bottom: 1.4rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+
+    h2:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary-light);
+      border-radius: 2px;
+    }
+
+    .roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+
+    .role-pill {
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .book-item {
+      text-align: center;
+      transition: transform 0.25s;
+    }
+
+    .book-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .book-item img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .book-item h3 {
+      font-size: 1.25rem;
+      margin: 0.5rem 0 0.3rem;
+      color: var(--text);
+    }
+
+    .book-item .subtitle {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-bottom: 0.8rem;
+    }
+
+    .book-item a {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+    }
+
+    .book-item a:hover {
+      background: var(--primary-light);
+    }
+
+    @media (max-width: 800px) {
+      .two-columns { grid-template-columns: 1fr; }
+      header h1 { font-size: 2.8rem; }
+      header { padding: 6rem 1.5rem 4rem; }
+    }
+
+    .photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid white;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
+    }
+
+    .cycling-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .cycling-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="pic.png" alt="Rômulo Radowitz" class="photo">
+  
+  <h1>Romulo</h1>
+  <div class="subtitle">
+    Liderança executiva • Investidor • Empresário • Escritor • Ciclista Amador
+  </div>
+
+  <div class="social-links">
+    <a href="https://linkedin.com/in/radowitz" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://twitter.com/romuloradowitz" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://youtube.com/@romuloradowitz" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>Quem sou eu</h2>
+    <p>
+      Executivo com +20 anos de experiência em liderança estratégica, gestão de negócios e transformação. Também sou autor de livros nas áreas  Liderança exponencial, Estratégia, Inteligência Artificial e Gerenciamento de Projetos.
+    </p>
+    <p>
+      Fora do ambiente corporativo, sou um apaixonado por ciclismo de mountain bike — pedalo mais de 2.000 km por ano e participo eventualmente de desafios e competições amadoras.
+    </p>
+
+    <div class="roles">
+      <span class="role-pill">Executivo sênior</span>
+      <span class="role-pill">Investidor</span>
+      <span class="role-pill">Empresário</span>
+      <span class="role-pill">Autor publicado</span>
+      <span class="role-pill">Ciclista amador</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="two-columns">
+      <div>
+        <h2>Carreira Corporativa & Formação Acadêmica</h2>
+        <ul>
+          <li>Diretor em empresas de grande porte</li>
+          <li>Investidor em Ações e Fundos com Perspectiva a Longo Prazo </li>
+          <li> Graduado em Sistemas de Informação pela  UFSC - Universidade Federal de Santa Catarina </li>
+          <li> MBA em Gerenciamento de Projetos pela FGV - Fundação Getúlio Vargas</li>
+          <li> Pós-Graduado em Administração Estratégica pela FIA Business School </li>
+          <li> Associado da Sociedade Brasileira de Computação (SBC) </li>
+          <li> Ex-Pesquisador do DMC-NS Lab - Distributed Mobile Comput & Network Security Laboratory </li>
+          <li> Ex-Palestrante do I2TS - INTERNATIONAL INFORMATION AND TELECOMMUNICATION TECHNOLOGIES SYMPOSIUM</li>
+          <li> Greenbelt e apaixonado por estatítica</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Projetos</h2>
+        <ul>
+        <li>Liderança,Saúde,Telecomunicações,Estratégia </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Nova seção: Portfólio de Livros -->
+    <h2>Portfólio de Livros</h2>
+    <p>Meus livros, publicações independetes, que trazem reflexões práticas e prorjetos sobre Liderança exponencial, Estratégia, Inteligência Artificial e Gerenciamento de Projetos. Aqui estão os principais títulos:</p>
+
+    <div class="books-grid">
+      <!-- Livro 1 - substitua tudo aqui -->
+      <div class="book-item">
+        <img src="fia.jpg" alt="Título do Livro 1">
+        <h3>A Ordem do Jogo</h3>
+        <div class="subtitle">As Ferramentas que os Melhores Já Dominam • 2026</div>
+        <a href="https://amazon.com.br/SEU-LIVRO1" target="_blank">Comprar / Ler mais</a>
+      </div>
+
+      <!-- Livro 2 -->
+      <div class="book-item">
+        <img src="fgv.jpg" alt="Gerenciamento de Projetos em Telecomunicações">
+        <h3>A Máquina de Resultados</h3>
+        <div class="subtitle">Estratégias comprovadas para gestores e PMOs de telecomunicações • 202X</div>
+        <a href="https://seu-site.com/livro2" target="_blank">Comprar / Ler mais</a>
+      </div>
+
+      <!-- Livro 3 - adicione quantos quiser -->
+      <div class="book-item">
+        <img src="ufsc.jpg" alt="A Ordem do Jogo">
+        <h3>Inteligência Artificial</h3>
+        <div class="subtitle">Detecção de Intrusão em Redes Móveis AD HOC, baseado em Redes Neurais Artificiais • 2015</div>
+        <a href="https://amazon.com.br/SEU-LIVRO3" target="_blank">Comprar / Ler mais</a>
+      </div>
+
+      <!-- Mais livros... basta copiar o bloco acima -->
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Ciclismo – Minha válvula de escape e paixão</h2>
+    <p>
+      O ciclismo entrou na minha vida como forma de equilíbrio e disciplina mental. Hoje é parte essencial da rotina: treino estruturado, viagens pedalando, desafios de longa distância e amizade com um grupo incrível de ciclistas.
+    </p>
+
+    <div class="cycling-gallery">
+      <img src="c1.jpg" alt="">
+      <img src="s5.jpg" alt="">
+      <img src="c2.jpg" alt="">
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Romulo Radowitz — Feito com disciplina, café e muitas pedaladas</p>
+</footer>
+
+</body>
+</html>

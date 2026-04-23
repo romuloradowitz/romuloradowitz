@@ -1,326 +1,805 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta name="google-site-verification" content="aX7uvAHRvjrS32l40QzLTyCe7qAFY1KQFR5yXCDZD-0" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Romulo – Executivo | Investidor | Empresário | Autor | Ciclista</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="canonical" href="https://romuloradowitz.github.io/romuloradowitz/">
-  <link rel="canonical" href="https://www.romuloradowitz.com.br/" />
-  <style>
-    :root {
-      --primary: #1e3a8a;      
-      --primary-light: #3b82f6;
-      --text: #1f2937;
-      --light: #f8fafc;
-      --gray: #64748b;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romulo Radowitz — Executivo · Investidor · Ciclista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --bg2: #0d1318;
+    --bg3: #111820;
+    --accent: #00e5ff;
+    --accent2: #ff6b2b;
+    --text: #e8edf2;
+    --muted: #6b7c8d;
+    --line: rgba(0,229,255,0.12);
+    --card: rgba(255,255,255,0.03);
+  }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      background: var(--light);
-      line-height: 1.6;
-    }
+  html { scroll-behavior: smooth; }
 
-    header {
-      background: linear-gradient(135deg, var(--primary) 0%, #111827 100%);
-      color: white;
-      padding: 8rem 2rem 6rem;
-      text-align: center;
-      position: relative;
-    }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-    header h1 {
-      font-size: 3.8rem;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
 
-    header .subtitle {
-      font-size: 1.5rem;
-      opacity: 0.9;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-    }
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(8,12,16,0.95), transparent);
+    backdrop-filter: blur(2px);
+  }
 
-    .social-links a {
-      color: white;
-      font-size: 1.8rem;
-      margin: 0 1rem;
-      opacity: 0.85;
-      transition: all 0.25s;
-    }
+  .nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
 
-    .social-links a:hover {
-      opacity: 1;
-      transform: translateY(-3px);
-    }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
 
-    main {
-      max-width: 1100px;
-      margin: -4rem auto 4rem;
-      padding: 0 1.5rem;
-    }
+  .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      padding: 2.8rem;
-      margin-bottom: 2.5rem;
-    }
+  .nav-links a:hover { color: var(--accent); }
 
-    h2 {
-      color: var(--primary);
-      font-size: 2.1rem;
-      margin-bottom: 1.4rem;
-      position: relative;
-      padding-bottom: 0.8rem;
-    }
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
 
-    h2:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: var(--primary-light);
-      border-radius: 2px;
-    }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 4rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
 
-    .roles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin: 2rem 0;
-    }
+  .hero-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
 
-    .role-pill {
-      background: var(--primary);
-      color: white;
-      padding: 0.6rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 10vw, 10rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
 
-    .two-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin: 2.5rem 0;
-    }
+  .hero-name span { color: var(--accent); }
 
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 380px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
 
-    .book-item {
-      text-align: center;
-      transition: transform 0.25s;
-    }
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
 
-    .book-item:hover {
-      transform: translateY(-8px);
-    }
+  .pill {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-family: 'Space Mono', monospace;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
 
-    .book-item img {
-      width: 100%;
-      max-width: 220px;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      margin-bottom: 1rem;
-      border: 1px solid #e2e8f0;
-    }
+  .pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(0,229,255,0.05);
+  }
 
-    .book-item h3 {
-      font-size: 1.25rem;
-      margin: 0.5rem 0 0.3rem;
-      color: var(--text);
-    }
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
 
-    .book-item .subtitle {
-      font-size: 1rem;
-      color: var(--gray);
-      margin-bottom: 0.8rem;
-    }
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, var(--bg) 0%, transparent 40%);
+    z-index: 2;
+  }
 
-    .book-item a {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 0.6rem 1.4rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.25s;
-    }
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(40%) contrast(1.1);
+    opacity: 0.7;
+  }
 
-    .book-item a:hover {
-      background: var(--primary-light);
-    }
+  /* radial glow */
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: pulse 4s ease-in-out infinite;
+  }
 
-    @media (max-width: 800px) {
-      .two-columns { grid-template-columns: 1fr; }
-      header h1 { font-size: 2.8rem; }
-      header { padding: 6rem 1.5rem 4rem; }
-    }
+  /* km counter strip */
+  .km-strip {
+    position: absolute;
+    bottom: 2rem;
+    left: 5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 1s forwards;
+  }
 
-    .photo {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid white;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-      margin-bottom: 1.5rem;
-    }
+  .km-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--accent);
+  }
 
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 3rem 1rem;
-      margin-top: 4rem;
-    }
+  .km-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
 
-    .cycling-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-      margin-top: 2rem;
-    }
+  /* horizontal rule accent */
+  .h-line {
+    height: 1px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    margin: 4rem 0;
+    width: 100%;
+    opacity: 0.3;
+  }
 
-    .cycling-gallery img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-  </style>
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5rem; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    margin-bottom: 3rem;
+  }
+
+  /* ── SOBRE ── */
+  #sobre {
+    background: var(--bg2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .sobre-text p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .sobre-text p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .credentials {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .credentials li {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    transition: color 0.3s;
+  }
+
+  .credentials li:hover { color: var(--text); }
+
+  .cred-icon {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    padding-top: 0.3rem;
+    min-width: 12px;
+  }
+
+  /* ── LIVROS ── */
+  #livros { background: var(--bg); }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .book-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+    position: relative;
+  }
+
+  .book-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,229,255,0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .book-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,229,255,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(0,229,255,0.08);
+  }
+
+  .book-card:hover::before { opacity: 1; }
+
+  .book-img-wrap {
+    height: 220px;
+    overflow: hidden;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: filter 0.4s, transform 0.4s;
+  }
+
+  .book-card:hover .book-img-wrap img {
+    filter: grayscale(0%);
+    transform: scale(1.04);
+  }
+
+  .book-body { padding: 1.5rem; }
+
+  .book-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-sub {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .btn-arrow { font-size: 0.8rem; }
+
+  /* ── CICLISMO ── */
+  #ciclismo {
+    background: var(--bg2);
+  }
+
+  .cycling-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .cycling-text p {
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+
+  .cycling-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .stat-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  .stat-desc {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .photos-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 300px;
+    gap: 1rem;
+  }
+
+  .photo-item {
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%) contrast(1.1);
+    transition: filter 0.5s, transform 0.5s;
+  }
+
+  .photo-item:hover img {
+    filter: grayscale(0%) contrast(1.1);
+    transform: scale(1.05);
+  }
+
+  .photo-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(8,12,16,0.6), transparent 50%);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg);
+    padding: 4rem 5rem 3rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  .footer-copy {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-align: right;
+    line-height: 2;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 0.7rem 0;
+    background: var(--bg3);
+  }
+
+  .ticker {
+    display: flex;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: ticker 20s linear infinite;
+  }
+
+  .ticker-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  .ticker-item span { color: var(--accent); margin: 0 0.5rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 0.6; }
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── GRID DECO ── */
+  .grid-deco {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 7rem 2rem 4rem; }
+    #sobre, .cycling-header { grid-template-columns: 1fr; gap: 3rem; }
+    section { padding: 4rem 2rem; }
+    .books-grid { grid-template-columns: 1fr; }
+    .photos-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .cycling-stat { align-items: flex-start; }
+    .stat-big { font-size: 5rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-copy { text-align: center; }
+  }
+</style>
 </head>
 <body>
 
-<header>
-  <img src="pic.png" alt="Rômulo Radowitz" class="photo">
-  
-  <h1>Romulo</h1>
-  <div class="subtitle">
-    Liderança executiva • Investidor • Empresário • Escritor • Ciclista Amador
-  </div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">RR // PORTFOLIO</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#livros">Livros</a></li>
+    <li><a href="#ciclismo">Ciclismo</a></li>
+  </ul>
+</nav>
 
-  <div class="social-links">
-    <a href="https://linkedin.com/in/radowitz" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://twitter.com/romuloradowitz" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://youtube.com/@romuloradowitz" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
-</header>
+<!-- HERO -->
+<section id="hero">
+  <div class="grid-deco"></div>
+  <div class="hero-glow"></div>
 
-<main>
-
-  <div class="card">
-    <h2>Quem sou eu</h2>
-    <p>
-      Executivo com +20 anos de experiência em liderança estratégica, gestão de negócios e transformação. Também sou autor de livros nas áreas  Liderança exponencial, Estratégia, Inteligência Artificial e Gerenciamento de Projetos.
-    </p>
-    <p>
-      Fora do ambiente corporativo, sou um apaixonado por ciclismo de mountain bike — pedalo mais de 2.000 km por ano e participo eventualmente de desafios e competições amadoras.
-    </p>
-
-    <div class="roles">
-      <span class="role-pill">Executivo sênior</span>
-      <span class="role-pill">Investidor</span>
-      <span class="role-pill">Empresário</span>
-      <span class="role-pill">Autor publicado</span>
-      <span class="role-pill">Ciclista amador</span>
+  <div class="hero-left">
+    <p class="hero-tag">// Executivo · Investidor · Autor · Ciclista</p>
+    <h1 class="hero-name">ROMULO<br><span>RADOWITZ</span></h1>
+    <p class="hero-sub">+20 anos de liderança estratégica, transformação de negócios, escrita e 2.000 km por ano sobre duas rodas.</p>
+    <div class="hero-pills">
+      <span class="pill">Estratégia</span>
+      <span class="pill">Liderança</span>
+      <span class="pill">Inteligência Artificial</span>
+      <span class="pill">Mountain Bike</span>
+      <span class="pill">Investimentos</span>
+    </div>
+    <div class="km-strip">
+      <span class="km-number">2.000+</span>
+      <span class="km-label">km / ano<br>pedalados</span>
     </div>
   </div>
 
-  <div class="card">
-    <div class="two-columns">
-      <div>
-        <h2>Carreira Corporativa & Formação Acadêmica</h2>
-        <ul>
-          <li>Diretor em empresas de grande porte</li>
-          <li>Investidor em Ações e Fundos com Perspectiva a Longo Prazo </li>
-          <li> Graduado em Sistemas de Informação pela  UFSC - Universidade Federal de Santa Catarina </li>
-          <li> MBA em Gerenciamento de Projetos pela FGV - Fundação Getúlio Vargas</li>
-          <li> Pós-Graduado em Administração Estratégica pela FIA Business School </li>
-          <li> Associado da Sociedade Brasileira de Computação (SBC) </li>
-          <li> Ex-Pesquisador do DMC-NS Lab - Distributed Mobile Comput & Network Security Laboratory </li>
-          <li> Ex-Palestrante do I2TS - INTERNATIONAL INFORMATION AND TELECOMMUNICATION TECHNOLOGIES SYMPOSIUM</li>
-          <li> Greenbelt e apaixonado por estatítica</li>
-        </ul>
-      </div>
+  <div class="hero-right">
+    <img class="hero-img" src="https://www.romuloradowitz.com.br/pic.png" alt="Romulo Radowitz">
+  </div>
+</section>
 
-      <div>
-        <h2>Projetos</h2>
-        <ul>
-        <li>Liderança,Saúde,Telecomunicações,Estratégia </li>
-        </ul>
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">LIDERANÇA EXPONENCIAL <span>✦</span></span>
+    <span class="ticker-item">GESTÃO DE PROJETOS <span>✦</span></span>
+    <span class="ticker-item">INTELIGÊNCIA ARTIFICIAL <span>✦</span></span>
+    <span class="ticker-item">MOUNTAIN BIKE <span>✦</span></span>
+    <span class="ticker-item">INVESTIDOR <span>✦</span></span>
+    <span class="ticker-item">ESTRATÉGIA <span>✦</span></span>
+    <span class="ticker-item">LIDERANÇA EXPONENCIAL <span>✦</span></span>
+    <span class="ticker-item">GESTÃO DE PROJETOS <span>✦</span></span>
+    <span class="ticker-item">INTELIGÊNCIA ARTIFICIAL <span>✦</span></span>
+    <span class="ticker-item">MOUNTAIN BIKE <span>✦</span></span>
+    <span class="ticker-item">INVESTIDOR <span>✦</span></span>
+    <span class="ticker-item">ESTRATÉGIA <span>✦</span></span>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-text reveal">
+    <p class="section-label">// 001 — Quem Sou</p>
+    <h2 class="section-title">ALÉM DO<br>EXECUTIVO</h2>
+    <p>Sou um <strong>executivo sênior</strong> com mais de 20 anos construindo negócios, liderando times e navegando transformações complexas em grandes organizações.</p>
+    <p>Paralelamente, sou <strong>investidor</strong> com foco de longo prazo em ações e fundos, e <strong>empresário</strong> com projetos nas áreas de liderança, saúde, telecomunicações e estratégia.</p>
+    <p>Escrevo sobre o que vivo: <strong>liderança, IA, estratégia e gestão de projetos</strong>. E no fim do dia (ou antes do amanhecer), estou nas trilhas — porque o Mountain Bike me ensina mais sobre performance do que qualquer sala de reunião.</p>
+  </div>
+
+  <div class="reveal" style="transition-delay:0.2s">
+    <ul class="credentials">
+      <li>
+        <span class="cred-icon">▸</span>
+        <span>Graduado em <strong>Sistemas de Informação</strong> — UFSC</span>
+      </li>
+      <li>
+        <span class="cred-icon">▸</span>
+        <span>MBA em <strong>Gerenciamento de Projetos</strong> — FGV</span>
+      </li>
+      <li>
+        <span class="cred-icon">▸</span>
+        <span>Pós-graduado em <strong>Administração Estratégica</strong> — FIA Business School</span>
+      </li>
+      <li>
+        <span class="cred-icon">▸</span>
+        <span>Associado da <strong>Sociedade Brasileira de Computação</strong> (SBC)</span>
+      </li>
+      <li>
+        <span class="cred-icon">▸</span>
+        <span>Ex-Pesquisador do <strong>DMC-NS Lab</strong> — Distributed Mobile Computing & Network Security</span>
+      </li>
+      <li>
+        <span class="cred-icon">▸</span>
+        <span>Ex-Palestrante no <strong>I2TS</strong> — International Information & Telecommunication Technologies Symposium</span>
+      </li>
+      <li>
+        <span class="cred-icon">▸</span>
+        <span><strong>Greenbelt</strong> certificado e apaixonado por estatística aplicada</span>
+      </li>
+      <li>
+        <span class="cred-icon">▸</span>
+        <span>Diretor em <strong>empresas de grande porte</strong></span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- LIVROS -->
+<section id="livros">
+  <div class="reveal">
+    <p class="section-label">// 002 — Publicações</p>
+    <h2 class="section-title">PORTFÓLIO<br>DE LIVROS</h2>
+  </div>
+
+  <div class="books-grid">
+
+    <div class="book-card reveal" style="transition-delay:0.1s">
+      <div class="book-img-wrap">
+        <img src="https://www.romuloradowitz.com.br/fia.jpg" alt="A Ordem do Jogo">
+      </div>
+      <div class="book-body">
+        <p class="book-year">// 2026</p>
+        <h3 class="book-title">A Ordem do Jogo</h3>
+        <p class="book-sub">As ferramentas que os melhores já dominam — liderança exponencial na prática.</p>
+        <a href="https://amazon.com.br/SEU-LIVRO1" class="btn" target="_blank">Adquirir <span class="btn-arrow">→</span></a>
       </div>
     </div>
 
-    <!-- Nova seção: Portfólio de Livros -->
-    <h2>Portfólio de Livros</h2>
-    <p>Meus livros, publicações independetes, que trazem reflexões práticas e prorjetos sobre Liderança exponencial, Estratégia, Inteligência Artificial e Gerenciamento de Projetos. Aqui estão os principais títulos:</p>
-
-    <div class="books-grid">
-      <!-- Livro 1 - substitua tudo aqui -->
-      <div class="book-item">
-        <img src="fia.jpg" alt="Título do Livro 1">
-        <h3>A Ordem do Jogo</h3>
-        <div class="subtitle">As Ferramentas que os Melhores Já Dominam • 2026</div>
-        <a href="https://amazon.com.br/SEU-LIVRO1" target="_blank">Comprar / Ler mais</a>
+    <div class="book-card reveal" style="transition-delay:0.25s">
+      <div class="book-img-wrap">
+        <img src="https://www.romuloradowitz.com.br/fgv.jpg" alt="A Máquina de Resultados">
       </div>
-
-      <!-- Livro 2 -->
-      <div class="book-item">
-        <img src="fgv.jpg" alt="Gerenciamento de Projetos em Telecomunicações">
-        <h3>A Máquina de Resultados</h3>
-        <div class="subtitle">Estratégias comprovadas para gestores e PMOs de telecomunicações • 202X</div>
-        <a href="https://seu-site.com/livro2" target="_blank">Comprar / Ler mais</a>
+      <div class="book-body">
+        <p class="book-year">// 2024</p>
+        <h3 class="book-title">A Máquina de Resultados</h3>
+        <p class="book-sub">Estratégias comprovadas para gestores e PMOs de telecomunicações.</p>
+        <a href="https://seu-site.com/livro2" class="btn" target="_blank">Adquirir <span class="btn-arrow">→</span></a>
       </div>
+    </div>
 
-      <!-- Livro 3 - adicione quantos quiser -->
-      <div class="book-item">
-        <img src="ufsc.jpg" alt="A Ordem do Jogo">
-        <h3>Inteligência Artificial</h3>
-        <div class="subtitle">Detecção de Intrusão em Redes Móveis AD HOC, baseado em Redes Neurais Artificiais • 2015</div>
-        <a href="https://amazon.com.br/SEU-LIVRO3" target="_blank">Comprar / Ler mais</a>
+    <div class="book-card reveal" style="transition-delay:0.4s">
+      <div class="book-img-wrap">
+        <img src="https://www.romuloradowitz.com.br/ufsc.jpg" alt="Inteligência Artificial">
       </div>
+      <div class="book-body">
+        <p class="book-year">// 2015</p>
+        <h3 class="book-title">Inteligência Artificial</h3>
+        <p class="book-sub">Detecção de intrusão em redes móveis Ad Hoc, baseado em redes neurais artificiais.</p>
+        <a href="https://amazon.com.br/SEU-LIVRO3" class="btn" target="_blank">Adquirir <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
 
-      <!-- Mais livros... basta copiar o bloco acima -->
+  </div>
+</section>
+
+<!-- CICLISMO -->
+<section id="ciclismo">
+  <div class="cycling-header">
+    <div class="cycling-text reveal">
+      <p class="section-label">// 003 — Na Trilha</p>
+      <h2 class="section-title">CICLISMO<br>& EQUILÍBRIO</h2>
+      <p>O Mountain Bike entrou na minha vida como equilíbrio — virou disciplina mental. Treino estruturado, viagens pedalando, desafios de longa distância e uma comunidade incrível de ciclistas que tornaram a bicicleta parte essencial da rotina.</p>
+    </div>
+    <div class="cycling-stat reveal" style="transition-delay:0.2s">
+      <span class="stat-big">2K</span>
+      <span class="stat-desc">Quilômetros<br>pedalados por ano</span>
     </div>
   </div>
 
-  <div class="card">
-    <h2>Ciclismo – Minha válvula de escape e paixão</h2>
-    <p>
-      O ciclismo entrou na minha vida como forma de equilíbrio e disciplina mental. Hoje é parte essencial da rotina: treino estruturado, viagens pedalando, desafios de longa distância e amizade com um grupo incrível de ciclistas.
-    </p>
-
-    <div class="cycling-gallery">
-      <img src="c1.jpg" alt="">
-      <img src="s5.jpg" alt="">
-      <img src="c2.jpg" alt="">
+  <div class="photos-grid reveal" style="transition-delay:0.3s">
+    <div class="photo-item">
+      <img src="https://www.romuloradowitz.com.br/c1.jpg" alt="Ciclismo MTB">
+    </div>
+    <div class="photo-item">
+      <img src="https://www.romuloradowitz.com.br/s5.jpg" alt="Trilha">
+    </div>
+    <div class="photo-item">
+      <img src="https://www.romuloradowitz.com.br/c2.jpg" alt="Mountain Bike">
     </div>
   </div>
+</section>
 
-</main>
-
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Romulo Radowitz — Feito com disciplina, café e muitas pedaladas</p>
+  <div class="footer-logo">ROMULO <span>R.</span></div>
+  <div class="footer-copy">
+    © 2026 Romulo Radowitz<br>
+    Feito com disciplina, café e muitas pedaladas.
+  </div>
 </footer>
 
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Smooth nav highlight
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    ['sobre','livros','ciclismo'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.offsetTop - 100;
+      const bot = top + el.offsetHeight;
+      const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+      if (scrollY >= top && scrollY < bot) {
+        navLinks.forEach(l => l.style.color = '');
+        if (link) link.style.color = 'var(--accent)';
+      }
+    });
+  });
+</script>
 </body>
 </html>
